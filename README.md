@@ -19,7 +19,7 @@ It’s designed to be fast, reliable, and easy to integrate into your daily work
 ## 🖼️ Demo / Screenshots
 
 <!-- 📸 Add your screenshots inside the screenshots/ folder and update these paths -->
-![Home](screenshots/Home.png)
+![Home](https://raw.githubusercontent.com/saqibaltaf27/convertly/main/screenshots/Home.png)
 ![File Upload](screenshots/upload.png)
 ![Conversion Progress](screenshots/progress.png)
 ![About](screenshots/download.png)
