@@ -14,7 +14,7 @@ import time
 app = Flask(__name__)
 CORS(app)
 
-#UPLOAD_FOLDER = "uploads"
+UPLOAD_FOLDER = "uploads"
 app.config['UPLOAD_FOLDER'] = os.path.join(os.getcwd(), "uploads")
 os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 
