@@ -1,18 +1,22 @@
-# Use the official Python image as a base
+# Use the official Python image
 FROM python:3.12-slim
 
-# Set the working directory
-RUN python -m venv --copies /opt/venv
+# Set working directory inside container
+WORKDIR /app
 
-# Copy the requirements file and install dependencies
-RUN /opt/venv/bin/python -m pip install -r requirements.txt
+# Copy requirements first and install
+COPY requirements.txt .
+RUN python -m venv /opt/venv \
+ && /opt/venv/bin/pip install --no-cache-dir -r requirements.txt
 
-# Copy the rest of the application code
+# Copy the rest of your app (but .dockerignore will skip local venv/)
 COPY . .
 
-# Expose the port your app runs on (e.g., 5000)
+# Make sure the venv is used by default
+ENV PATH="/opt/venv/bin:$PATH"
+
+# Expose the port your app runs on
 EXPOSE 5000
 
-# Specify the command to run the application using a production-ready server
-# Gunicorn is a popular choice for Flask
+# Run the app with Gunicorn
 CMD ["gunicorn", "--bind", "0.0.0.0:5000", "server:app"]
