@@ -4,5 +4,8 @@ python-docx
 openpyxl
 PyPDF2
 reportlab
+Pillow==10.0.1
+PyMuPDF==1.22.5
 pandas
 numpy
+gunicorn==21.2.0
