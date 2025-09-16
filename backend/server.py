@@ -13,8 +13,10 @@ import time
 
 app = Flask(__name__)
 CORS(app)
-UPLOAD_FOLDER = "uploads"
-os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+
+#UPLOAD_FOLDER = "uploads"
+app.config['UPLOAD_FOLDER'] = os.path.join(os.getcwd(), "uploads")
+os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 
 ALLOWED_PDF = {".pdf"}
 ALLOWED_WORD = {".doc", ".docx"}
