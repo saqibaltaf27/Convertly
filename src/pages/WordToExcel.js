@@ -63,7 +63,7 @@ export default function WordToExcel() {
     form.append("file", item.file);
 
     try {
-      const res = await fetch("http://localhost:5000/word-to-excel", {
+      const res = await fetch("https://convertly-production.up.railway.app/word-to-excel", {
         method: "POST",
         body: form,
       });
@@ -78,7 +78,7 @@ export default function WordToExcel() {
       updateItem(item.id, {
         progress: 100,
         status: "done",
-        downloadUrl: "http://localhost:5000" + (data.download_url || ""),
+        downloadUrl: "https://convertly-production.up.railway.app" + (data.download_url || ""),
       });
     } catch (err) {
       console.error("Conversion error:", err);

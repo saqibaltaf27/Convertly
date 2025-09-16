@@ -69,7 +69,7 @@ export default function PdfToWord() {
     form.append("file", item.file);
 
     try {
-      const res = await fetch("http://localhost:5000/pdf-to-word", {
+      const res = await fetch("https://convertly-production.up.railway.app/pdf-to-word", {
         method: "POST",
         body: form,
       });
@@ -84,7 +84,7 @@ export default function PdfToWord() {
       updateItem(item.id, {
         progress: 100,
         status: "done",
-        downloadUrl: "http://localhost:5000" + (data.download_url || ""),
+        downloadUrl: "https://convertly-production.up.railway.app" + (data.download_url || ""),
       });
     } catch (err) {
       console.error("Conversion error:", err);

@@ -64,7 +64,7 @@ export default function CompressImage() {
     form.append("file", item.file);
 
     try {
-      const res = await fetch("http://localhost:5000/image-compress", {
+      const res = await fetch("https://convertly-production.up.railway.app/image-compress", {
         method: "POST",
         body: form,
       });
@@ -75,7 +75,7 @@ export default function CompressImage() {
         updateItem(item.id, {
           status: "done",
           progress: 100,
-          downloadUrl: "http://localhost:5000" + data.download_url,
+          downloadUrl: "https://convertly-production.up.railway.app" + data.download_url,
         });
       } else {
         throw new Error(data.error || "Compression failed");

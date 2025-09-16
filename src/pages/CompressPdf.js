@@ -65,7 +65,7 @@ export default function CompressPdf() {
     form.append("file", item.file);
 
     try {
-      const res = await fetch("http://localhost:5000/compress-pdf", {
+      const res = await fetch("https://convertly-production.up.railway.app/compress-pdf", {
         method: "POST",
         body: form,
       });
@@ -76,7 +76,7 @@ export default function CompressPdf() {
         updateItem(item.id, {
           progress: 100,
           status: "done",
-          downloadUrl: "http://localhost:5000" + data.download_url,
+          downloadUrl: "https://convertly-production.up.railway.app" + data.download_url,
           compressedSize: data.compressed_size_kb,
         });
       } else {

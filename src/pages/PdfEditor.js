@@ -77,7 +77,7 @@ export default function PdfEditor() {
     if (action === "split") form.append("pages", pages);
 
     try {
-      const res = await fetch("http://localhost:5000/pdf-editor", { method: "POST", body: form });
+      const res = await fetch("https://convertly-production.up.railway.app/pdf-editor", { method: "POST", body: form });
 
       if (!res.ok) {
         const text = await res.text().catch(() => "");
@@ -89,7 +89,7 @@ export default function PdfEditor() {
       updateItem(item.id, {
         progress: 100,
         status: "done",
-        downloadUrl: "http://localhost:5000" + (data.download_url || ""),
+        downloadUrl: "https://convertly-production.up.railway.app" + (data.download_url || ""),
       });
     } catch (err) {
       console.error("PDF processing error:", err);

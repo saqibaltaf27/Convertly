@@ -24,7 +24,7 @@ const Services = () => {
                 data.append("target_kb", target);
             }
             
-            const res = await axios.post(`http://localhost:5000/${endpoint}`, data, {
+            const res = await axios.post(`https://convertly-production.up.railway.app/${endpoint}`, data, {
                 responseType: "blob"
             });
             
